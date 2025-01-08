@@ -35,6 +35,18 @@ def afficher_repartition(noms, notes):
     print("\nÉtudiants ayant réussi :", ", ".join(reussite))
     print("Étudiants en échec :", ", ".join(echec))
 
+# Partie 4 : Meilleure note
+def meilleure_note(noms, notes):
+    """
+    Identifie l'étudiant ayant la meilleure note et affiche son nom et sa note.
+    """
+    if not notes:
+        print("Pas de notes disponibles.")
+        return
+
+    indice_meilleur = notes.index(max(notes))
+    print(f"\nL'étudiant ayant la meilleure note est {noms[indice_meilleur]} avec {notes[indice_meilleur]}.")
+
 if __name__ == "__main__":
     noms, notes = saisir_donnees()
     print("\nDonnées saisies :")
@@ -45,6 +57,8 @@ if __name__ == "__main__":
     print(f"\nLa moyenne de la classe est de {moyenne:.2f}.")
      # Partie 3 : Affichage de la répartition
     afficher_repartition(noms, notes)
+    # Partie 4 : Meilleure note
+    meilleure_note(noms, notes)
 
 
 
