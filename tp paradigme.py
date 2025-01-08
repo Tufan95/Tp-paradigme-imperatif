@@ -24,6 +24,17 @@ def calculer_moyenne(notes):
     """
     return sum(notes) / len(notes) if notes else 0
 
+# Partie 3 : Affichage de la répartition
+def afficher_repartition(noms, notes):
+    """
+    Affiche la répartition des étudiants selon leurs résultats (réussite ou échec).
+    """
+    reussite = [noms[i] for i in range(len(notes)) if notes[i] >= 10]
+    echec = [noms[i] for i in range(len(notes)) if notes[i] < 10]
+
+    print("\nÉtudiants ayant réussi :", ", ".join(reussite))
+    print("Étudiants en échec :", ", ".join(echec))
+
 if __name__ == "__main__":
     noms, notes = saisir_donnees()
     print("\nDonnées saisies :")
@@ -32,5 +43,8 @@ if __name__ == "__main__":
     # Partie 2 : Calcul de la moyenne
     moyenne = calculer_moyenne(notes)
     print(f"\nLa moyenne de la classe est de {moyenne:.2f}.")
+     # Partie 3 : Affichage de la répartition
+    afficher_repartition(noms, notes)
+
 
 
